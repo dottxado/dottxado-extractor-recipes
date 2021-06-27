@@ -11,6 +11,9 @@
 
 namespace Dottxado\Dottxado_Extractor_Recipes\Includes;
 
+use Dottxado\Dottxado_Extractor_Recipes\Admin\FilterTaxonomy;
+use Dottxado\Dottxado_Extractor_Recipes\Admin\IngredientTaxonomy;
+
 /**
  * Fired during plugin uninstallation.
  *
@@ -29,7 +32,30 @@ class Uninstaller {
 	 * @since    1.0.0
 	 */
 	public static function uninstall() {
+		self::removeIngredients();
+		self::removeFilters();
+	}
 
+	private static function removeIngredients() {
+		$taxonomy_name = IngredientTaxonomy::TAX_NAME;
+		$terms = get_terms( array(
+			'taxonomy' => $taxonomy_name,
+			'hide_empty' => false
+		) );
+		foreach ( $terms as $term ) {
+			wp_delete_term($term->term_id, $taxonomy_name);
+		}
+	}
+
+	private static function removeFilters() {
+		$taxonomy_name = FilterTaxonomy::TAX_NAME;
+		$terms = get_terms( array(
+			'taxonomy' => $taxonomy_name,
+			'hide_empty' => false
+		) );
+		foreach ( $terms as $term ) {
+			wp_delete_term($term->term_id, $taxonomy_name);
+		}
 	}
 
 }

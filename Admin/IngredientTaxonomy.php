@@ -24,6 +24,8 @@ namespace Dottxado\Dottxado_Extractor_Recipes\Admin;
  */
 class IngredientTaxonomy {
 
+	const TAX_NAME = 'ingredient';
+
 	/**
 	 * Singleton instance
 	 *
@@ -59,7 +61,7 @@ class IngredientTaxonomy {
 	 * for use with 'post'.
 	 */
 	public function init(): void {
-		register_taxonomy( 'ingredient', [ 'post' ], [
+		register_taxonomy( self::TAX_NAME, [ 'post' ], [
 			'hierarchical'          => true,
 			'public'                => true,
 			'show_in_nav_menus'     => true,
