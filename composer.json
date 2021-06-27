@@ -1,0 +1,14 @@
+{
+	"name": "dottxado/dottxado-extractor-recipes",
+	"description": "Add-on to manage more data for juice extractor recipes",
+	"autoload": {
+		"psr-4": {
+			"Dottxado\\Dottxado_Extractor_Recipes\\Admin\\": "Admin/",
+			"Dottxado\\Dottxado_Extractor_Recipes\\Front\\": "Front/",
+			"Dottxado\\Dottxado_Extractor_Recipes\\Includes\\": "Includes/"
+		}
+	},
+	"config": {
+        "optimize-autoloader": true
+      }
+}
