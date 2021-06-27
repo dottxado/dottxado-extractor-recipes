@@ -15,7 +15,6 @@
 
 namespace Dottxado\Dottxado_Extractor_Recipes\Includes;
 
-use Dottxado\Dottxado_Extractor_Recipes\Admin\Admin;
 use Dottxado\Dottxado_Extractor_Recipes\Admin\FilterTaxonomy;
 use Dottxado\Dottxado_Extractor_Recipes\Admin\IngredientTaxonomy;
 use Dottxado\Dottxado_Extractor_Recipes\Front\Front;
@@ -129,6 +128,8 @@ class Dottxado_Extractor_Recipes {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_front, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_front, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp', $plugin_front, 'onlyMembersAllowed' );
+
 
 	}
 

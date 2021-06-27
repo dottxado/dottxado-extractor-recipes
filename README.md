@@ -12,6 +12,8 @@ Plugin that adds two new taxonomies (Ingredient and Filter) to the Post to manag
 Use Ingredient to list the name of the ingredients present in the recipe (but not the quantities), and Filter to list
 what filter accessory you have to use in the recipe.
 
+This plugin also restrict the usage of the website only to logged-in users.
+
 ## Installation
 
 1. Upload `dottxado-extractor-recipes` folder to the `/wp-content/plugins/` directory

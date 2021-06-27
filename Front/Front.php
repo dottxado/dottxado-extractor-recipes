@@ -1,4 +1,5 @@
 <?php //phpcs:disable WordPress.Files.FileName.InvalidClassFileName
+
 /**
  * The public-facing functionality of the plugin.
  *
@@ -87,6 +88,16 @@ class Front {
 			true
 		);
 
+	}
+
+	/**
+	 * Allow only logged in users
+	 */
+	public function onlyMembersAllowed() {
+		global $pagenow;
+		if ( ! is_user_logged_in() && $pagenow != 'wp-login.php' ) {
+			auth_redirect();
+		}
 	}
 
 }
